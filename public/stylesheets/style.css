@@ -10,3 +10,15 @@ a {
 h1 {
   color: 15px;
 }
+
+
+.space {
+  margin: 40px 0;
+}
+
+.red {
+  background-color: red;
+  color: white;
+  border-radius: 30px;
+  
+}

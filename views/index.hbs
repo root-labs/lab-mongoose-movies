@@ -1,2 +1,13 @@
 <h1>{{appTitle}} 🚀</h1>
-<p>Welcome RootLearner!</p>
+<a href="/celebrities/create"><button class="btn btn-primary">Add new Celebrity</button></a>
+
+    {{#each celeb}}
+
+    <div class="space">
+<h1>Name: {{this.name}}</h1>
+<a href="/celebrities/{{this.id}}"> <button class="btn btn-primary">Details</button></a>
+<a href="/celebrities/{{this.id}}/sure"> <button class="btn btn-primary" >Delete</button></a>
+<a href="/celebrities/{{this.id}}/edit"> <button class="btn btn-primary">edit</button></a>
+
+</div>
+    {{/each}}
