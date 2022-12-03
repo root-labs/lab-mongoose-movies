@@ -28,6 +28,9 @@ app.locals.appTitle = `${capitalized(projectName)} created with RootLauncher`;
 const index = require("./routes/index.routes");
 app.use("/", index);
 
+const celebrityRoute = require("./routes/celebrities/celebrity.routes");
+app.use("/", celebrityRoute);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
