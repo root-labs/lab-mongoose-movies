@@ -26,7 +26,7 @@ router.post("/movies/new", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   MovieModel.create({ title, genre, plot, cast })
     .then((movie) => {
-      res.render("movies/index.hbs");
+      res.redirect("/movies");
       console.log("Movie createx", res);
     })
     .catch((err) => {

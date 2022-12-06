@@ -1,0 +1,25 @@
+<h2>Edit Celeb</h2>
+
+<form action="/celeb/{{celeb._id}}/edit" method="post">
+  <div class="mb-3">
+
+    <input placeholder="Name" id="name" name="name" value="{{celeb.name}}" />
+  </div>
+  <div class="mb-3">
+    <input
+      placeholder="occupation"
+      id="occupation"
+      name="occupation"
+      value="{{celeb.occupation}}"
+    />
+  </div>
+  <div class="mb-3">
+    <input
+      placeholder="CatchPhrase"
+      id="catchPhrase"
+      name="catchPhrase"
+      value="{{celeb.catchPhrase}}"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>

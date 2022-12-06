@@ -14,9 +14,11 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 //get celebrity detail page
-router.get("/celebrities/:id", (req, res, next) => {
+
+router.get("/celebrity/:id", (req, res, next) => {
   const { id } = req.params;
-  CelebrityModel.findById(id)
+  console.log("errrrrrrrrrrrr" + id);
+  CelebrityModel.findById(id.trim())
     .then((celeb) => {
       res.render("celebrities/show.hbs", { celeb });
       console.log("Celebrity fetched", res);
@@ -38,17 +40,49 @@ router.get("/celebrities/create", (req, res, next) => {
 });
 
 router.post("/celebrities/create", (req, res, next) => {
-  // Iteration #3: Add a new drone
-
-  // ... your code here
   const { name, occupation, catchPhrase } = req.body;
   CelebrityModel.create({ name, occupation, catchPhrase })
     .then(() => {
-      res.redirect("celebrities/index.hbs");
+      res.redirect("/celebrities");
     })
     .catch((err) => {
       console.log("celebrities creating failed", err);
     });
 });
 
+router.get("/celeb/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+  CelebrityModel.findById(id)
+    .then((celeb) => {
+      res.render("celebrities/update.hbs", { celeb });
+    })
+    .catch((err) => {
+      console.log("celebrities edit failed", err);
+    });
+});
+
+router.post("/celeb/:id/edit", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const { id } = req.params;
+  CelebrityModel.findByIdAndUpdate(id, { name, occupation, catchPhrase })
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      console.log("celebrities update failed", err);
+    });
+});
+
+router.post("/celeb/:id/delete", (req, res, next) => {
+  // Iteration #5: Delete the drone
+  // ... your code here
+  const { id } = req.params;
+  CelebrityModel.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      console.log("celebrities Delete failed", err);
+    });
+});
 module.exports = router;

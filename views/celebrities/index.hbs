@@ -1,7 +1,13 @@
 <h2>Celebrities</h2>
-{{#each celebrities}}
-  <p>{{name}}</p>
-  <a href="/celebrities/{{_id}}">show more</a>
-{{/each}}
-
 <a href="/celebrities/create">Add New Celebrity</a>
+<div class="container">
+
+  {{#each celebrities}}
+    <div class="center">
+
+      <p>{{name}}</p>
+      <a href="/celebrity/{{_id}}">show more</a>
+    </div>
+
+  {{/each}}
+</div>
