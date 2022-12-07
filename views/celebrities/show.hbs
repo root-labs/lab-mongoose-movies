@@ -1,0 +1,9 @@
+<h2>Celebrity Show</h2>
+<p>{{celeb.name}}</p>
+<p>{{celeb.occupation}}</p>
+<p>{{celeb.catchPhrase}}</p>
+<a href="/celeb/{{celeb._id}}/edit" class="btn btn-primary">Update drone</a>
+<form action="/celeb/{{celeb._id}}/delete" method="post">
+
+  <button type="submit" class="btn btn-warning">Delete drone</button>
+</form>
