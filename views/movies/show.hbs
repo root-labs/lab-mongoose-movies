@@ -1,0 +1,11 @@
+<h2>Movie Page</h2>
+<p>{{movie.title}}</p>
+<p>{{movie.genre}}</p>
+<p>{{movie.plot}}</p>
+<p>{{movie.cast}}</p>
+
+<a href="/movie/{{movie._id}}/edit" class="btn btn-primary">Update movie</a>
+<form action="/movie/{{movie._id}}/delete" method="post">
+
+  <button type="submit" class="btn btn-warning">Delete movie</button>
+</form>
